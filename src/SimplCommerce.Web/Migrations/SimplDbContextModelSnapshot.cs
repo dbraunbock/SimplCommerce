@@ -13,7 +13,8 @@ namespace SimplCommerce.Web.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
+                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<long>", b =>
                 {
@@ -358,6 +359,8 @@ namespace SimplCommerce.Web.Migrations
                     b.Property<bool>("HasOptions");
 
                     b.Property<bool>("IsDeleted");
+
+                    b.Property<bool>("IsFeatured");
 
                     b.Property<bool>("IsPublished");
 

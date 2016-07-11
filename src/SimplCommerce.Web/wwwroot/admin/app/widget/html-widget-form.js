@@ -8,6 +8,7 @@
     function HtmlWidgetFormCtrl($state, $stateParams, summerNoteService, widgetService) {
         var vm = this;
         vm.widgetZones = [];
+        vm.widgetInstance = { widgetZoneId: 1 };
         vm.widgetInstanceId = $stateParams.id;
         vm.isEditMode = vm.widgetInstanceId > 0;
 

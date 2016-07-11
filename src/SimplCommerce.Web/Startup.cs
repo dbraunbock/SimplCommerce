@@ -52,11 +52,11 @@ namespace SimplCommerce.Web
             GlobalConfiguration.ConnectionString = Configuration["Data:DefaultConnection:ConnectionString"];
             GlobalConfiguration.ApplicationPath = hostingEnvironment.WebRootPath;
 
-            //services.AddDbContext<SimplDbContext>(options =>
-            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("SimplCommerce.Web")));
-
             services.AddDbContext<SimplDbContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("SimplCommerce.Web")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("SimplCommerce.Web")));
+
+            //services.AddDbContext<SimplDbContext>(options => 
+            //    options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("SimplCommerce.Web")));
 
             services.AddIdentity<User, Role>(configure =>
             {
