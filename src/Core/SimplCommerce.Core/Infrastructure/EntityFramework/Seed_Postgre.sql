@@ -1,51 +1,11 @@
-﻿SET IDENTITY_INSERT [dbo].[Core_Role] ON 
-INSERT [dbo].[Core_Role] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (1, N'admin', N'ADMIN', N'bd3bee0b-5f1d-482d-b890-ffdc01915da3')
-INSERT [dbo].[Core_Role] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (2, N'customer', N'CUSTOMER', N'bd3bee0b-5f1d-482d-b890-ffdc01915da3')
-INSERT [dbo].[Core_Role] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (3, N'guest', N'GUEST', N'bd3bee0b-5f1d-482d-b890-ffdc01915da3')
-SET IDENTITY_INSERT [dbo].[Core_Role] OFF
-GO 
+﻿--Insert Province and district -- 
+DELETE FROM "Core_District";
+DELETE FROM "Core_StateOrProvince";
+DELETE FROM "Core_Country";
 
-SET IDENTITY_INSERT [dbo].[Core_User] ON 
-INSERT [dbo].[Core_User] ([Id], [UserGuid], [FullName], [IsDeleted], [CreatedOn], [UpdatedOn], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (1, '1FFF10CE-0231-43A2-8B7D-C8DB18504F65', N'Shop Admin', 0, CAST(N'2016-05-12 23:44:13.297' AS DateTime), CAST(N'2016-05-12 23:44:13.297' AS DateTime), N'admin@SimplCommerce.com', N'ADMIN@SIMPLCOMMERCE.COM', N'admin@SimplCommerce.com', N'ADMIN@SIMPLCOMMERCE.COM', 0, N'AQAAAAEAACcQAAAAEAEqSCV8Bpg69irmeg8N86U503jGEAYf75fBuzvL00/mr/FGEsiUqfR0rWBbBUwqtw==', N'9e87ce89-64c0-45b9-8b52-6e0eaa79e5b7', N'8620916f-e6b6-4f12-9041-83737154b338', NULL, 0, 0, NULL, 1, 0)
-SET IDENTITY_INSERT [dbo].[Core_User] OFF
-GO
+INSERT INTO "Core_Country" ("Id", "Name") VALUES (1, N'Việt Nam');
 
-INSERT [dbo].[Core_UserRole] ([UserId], [RoleId]) VALUES (1, 1)
-GO
-
-SET IDENTITY_INSERT [dbo].[Cms_Widget] ON 
-INSERT [dbo].[Cms_Widget] ([Id], [Code], [CreateUrl], [CreatedOn], [EditUrl], [IsPublished], [Name], [ViewComponentName]) VALUES (1, N'CarouselWidget', N'widget-carousel-create', CAST(N'2016-06-19 00:00:00.0000000' AS DateTime2), N'widget-carousel-edit', 1, N'Carousel Widget', N'CarouselWidget')
-INSERT [dbo].[Cms_Widget] ([Id], [Code], [CreateUrl], [CreatedOn], [EditUrl], [IsPublished], [Name], [ViewComponentName]) VALUES (2, N'HtmlWidget', N'widget-html-create', CAST(N'2016-06-24 00:00:00.0000000' AS DateTime2), N'widget-html-edit', 1, N'Html Widget', N'HtmlWidget')
-INSERT [dbo].[Cms_Widget] ([Id], [Code], [CreateUrl], [CreatedOn], [EditUrl], [IsPublished], [Name], [ViewComponentName]) VALUES (3, N'ProductDisplayWidget', N'widget-product-display-create', CAST(N'2016-07-08 00:00:00.0000000' AS DateTime2), N'widget-product-display-edit', 1, N'Product Display Widget', N'ProductDisplayWidget')
-SET IDENTITY_INSERT [dbo].[Cms_Widget] OFF
-GO
-
-SET IDENTITY_INSERT [dbo].[Cms_WidgetZone] ON 
-INSERT [dbo].[Cms_WidgetZone] ([Id], [Description], [Name]) VALUES (1, NULL, N'Home Featured')
-INSERT [dbo].[Cms_WidgetZone] ([Id], [Description], [Name]) VALUES (2, NULL, N'Home Main Content')
-INSERT [dbo].[Cms_WidgetZone] ([Id], [Description], [Name]) VALUES (3, NULL, N'Home After Main Content')
-SET IDENTITY_INSERT [dbo].[Cms_WidgetZone] OFF
-
-SET IDENTITY_INSERT [dbo].[Core_ProductOption] ON 
-INSERT [dbo].[Core_ProductOption] ([Id], [Name]) VALUES (1, N'Color')
-INSERT [dbo].[Core_ProductOption] ([Id], [Name]) VALUES (2, N'Size')
-SET IDENTITY_INSERT [dbo].[Core_ProductOption] OFF
-GO
-
-DELETE FROM Core_District 
-GO
-DELETE FROM Core_StateOrProvince 
-GO
-DELETE FROM Core_Country 
-GO
-
-SET IDENTITY_INSERT Core_Country ON 
-INSERT INTO Core_Country (Id, Name) VALUES (1, N'Việt Nam')
-SET IDENTITY_INSERT Core_Country OFF 
-GO
-
-SET IDENTITY_INSERT Core_StateOrProvince ON 
-INSERT INTO Core_StateOrProvince (Id, CountryId, Name, [Type]) VALUES
+INSERT INTO "Core_StateOrProvince" ("Id", "CountryId", "Name", ["Type"]) VALUES
 			(1, 1, N'Hà Nội', N'Thành Phố'),
 			(2, 1, N'Hà Giang', N'Tỉnh'),
 			(4, 1, N'Cao Bằng', N'Tỉnh'),
@@ -109,11 +69,8 @@ INSERT INTO Core_StateOrProvince (Id, CountryId, Name, [Type]) VALUES
 			(94, 1, N'Sóc Trăng', N'Tỉnh'),
 			(95, 1, N'Bạc Liêu', N'Tỉnh'),
 			(96, 1, N'Cà Mau', N'Tỉnh');
-SET IDENTITY_INSERT Core_StateOrProvince OFF 
-GO
 
-SET IDENTITY_INSERT Core_District ON 
-INSERT INTO Core_District (Id, Name, [Type], [Location], StateOrProvinceId) VALUES
+INSERT INTO "Core_District" ("Id", "Name", ["Type"], ["Location"], "StateOrProvinceId") VALUES
 (1, N'Ba Đình', N'Quận', N'21 02 08N, 105 49 38E', N'01'),
 (2, N'Hoàn Kiếm', N'Quận', N'21 01 53N, 105 51 09E', N'01'),
 (3, N'Tây Hồ', N'Quận', N'21 04 10N, 105 49 07E', N'01'),
@@ -811,6 +768,3 @@ INSERT INTO Core_District (Id, Name, [Type], [Location], StateOrProvinceId) VALU
 (971, N'Năm Căn', N'Huyện', N'8 46 59N, 104 58 20E', N'96'),
 (972, N'Phú Tân', N'Huyện', N'8 52 47N, 104 53 35E', N'96'),
 (973, N'Ngọc Hiển', N'Huyện', N'8 40 47N, 104 57 58E', N'96');
-
-SET IDENTITY_INSERT Core_District OFF 
-GO

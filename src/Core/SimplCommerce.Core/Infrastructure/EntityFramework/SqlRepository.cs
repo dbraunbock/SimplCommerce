@@ -21,9 +21,21 @@ namespace SimplCommerce.Core.Infrastructure.EntityFramework
 
         public void RunCommands(IEnumerable<string> commands)
         {
-            foreach (var command in commands)
+            int counter = 0;
+            try
             {
-                dbContext.Database.ExecuteSqlCommand(command);
+                foreach (var command in commands)
+                {
+                    counter++;
+                    if (!string.IsNullOrEmpty(command.ToString()))
+                    {
+                        dbContext.Database.ExecuteSqlCommand(command);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 

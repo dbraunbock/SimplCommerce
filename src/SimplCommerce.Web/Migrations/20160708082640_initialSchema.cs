@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace SimplCommerce.Web.Migrations
 {
-    public partial class InitialSchema : Migration
+    public partial class initialSchema : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,7 +27,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Code = table.Column<string>(nullable: true),
                     CreateUrl = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
@@ -47,7 +46,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Description = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true)
                 },
@@ -61,7 +60,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Description = table.Column<string>(maxLength: 5000, nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     IsPublished = table.Column<bool>(nullable: false),
@@ -78,7 +77,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Description = table.Column<string>(maxLength: 5000, nullable: true),
                     DisplayOrder = table.Column<int>(nullable: false),
                     Image = table.Column<string>(nullable: true),
@@ -104,7 +103,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -117,7 +116,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Caption = table.Column<string>(nullable: true),
                     FileName = table.Column<string>(nullable: true),
                     FileSize = table.Column<int>(nullable: false),
@@ -133,7 +132,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -146,7 +145,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -159,7 +158,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -172,7 +171,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     ConcurrencyStamp = table.Column<string>(nullable: true),
                     Name = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(maxLength: 256, nullable: true)
@@ -187,7 +186,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Culture = table.Column<string>(nullable: true),
                     Key = table.Column<string>(nullable: true),
                     Value = table.Column<string>(nullable: true)
@@ -202,7 +201,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     DistrictId = table.Column<long>(nullable: false),
                     DistrictName = table.Column<string>(nullable: true),
                     ProvinceName = table.Column<string>(nullable: true),
@@ -219,7 +218,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     EntityId = table.Column<long>(nullable: false),
                     EntityName = table.Column<string>(nullable: true),
                     Slug = table.Column<string>(nullable: true)
@@ -234,7 +233,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Data = table.Column<string>(nullable: true),
                     DisplayOrder = table.Column<int>(nullable: false),
@@ -268,7 +267,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     CountryId = table.Column<long>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Type = table.Column<string>(nullable: true)
@@ -289,7 +288,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     GroupId = table.Column<long>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
@@ -309,7 +308,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true),
                     RoleId = table.Column<long>(nullable: false)
@@ -330,7 +329,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Location = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     StateOrProvinceId = table.Column<long>(nullable: false),
@@ -376,7 +375,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     AddressLine1 = table.Column<string>(nullable: true),
                     AddressLine2 = table.Column<string>(nullable: true),
                     ContactName = table.Column<string>(nullable: true),
@@ -413,7 +412,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     AddressId = table.Column<long>(nullable: false),
                     AddressType = table.Column<int>(nullable: false),
                     LastUsedOn = table.Column<DateTime>(nullable: true),
@@ -435,7 +434,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     ConcurrencyStamp = table.Column<string>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
@@ -473,7 +472,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true),
                     UserId = table.Column<long>(nullable: false)
@@ -538,7 +537,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Body = table.Column<string>(nullable: true),
                     CreatedById = table.Column<long>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
@@ -575,7 +574,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     BrandId = table.Column<long>(nullable: true),
                     CreatedById = table.Column<long>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
@@ -635,7 +634,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     BillingAddressId = table.Column<long>(nullable: true),
                     CreatedById = table.Column<long>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
@@ -672,7 +671,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     AttributeId = table.Column<long>(nullable: false),
                     ProductId = table.Column<long>(nullable: false),
                     Value = table.Column<string>(nullable: true)
@@ -699,7 +698,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     CategoryId = table.Column<long>(nullable: false),
                     DisplayOrder = table.Column<int>(nullable: false),
                     IsFeaturedProduct = table.Column<bool>(nullable: false),
@@ -727,7 +726,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     LinkType = table.Column<int>(nullable: false),
                     LinkedProductId = table.Column<long>(nullable: false),
                     ProductId = table.Column<long>(nullable: false)
@@ -754,7 +753,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     DisplayOrder = table.Column<int>(nullable: false),
                     MediaId = table.Column<long>(nullable: false),
                     ProductId = table.Column<long>(nullable: false)
@@ -781,7 +780,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     OptionId = table.Column<long>(nullable: false),
                     ProducdtId = table.Column<long>(nullable: false),
                     ProductId = table.Column<long>(nullable: true),
@@ -809,7 +808,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     OptionId = table.Column<long>(nullable: false),
                     ProductId = table.Column<long>(nullable: false),
                     Value = table.Column<string>(nullable: true)
@@ -836,7 +835,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ProductId = table.Column<long>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
@@ -864,7 +863,7 @@ namespace SimplCommerce.Web.Migrations
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     OrderId = table.Column<long>(nullable: true),
                     ProductId = table.Column<long>(nullable: false),
                     ProductPrice = table.Column<decimal>(nullable: false),

@@ -7,11 +7,48 @@
     ViewData["Title"] = "Home Page";
 }
 
-@await Html.PartialAsync("_WidgetInstances", Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured))
+@foreach (var widgetInstance in Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeFeatured))
+{
+    if (widgetInstance.WidgetId == 2)
+    {
+        @Html.Raw(widgetInstance.HtmlData)
+    }
+    else
+    {
+        @await Component.InvokeAsync(widgetInstance.ViewComponentName, new { widgetInstance = widgetInstance })
+    }
 
-@await Html.PartialAsync("_WidgetInstances", Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeMainContent))
+}
 
-@await Html.PartialAsync("_WidgetInstances", Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeAfterMainContent))
+<h2 class="page-header">Featured products</h2>
+<div class="row product-list">
+    @foreach (var product in Model.FeaturedProducts)
+    {
+        <div class="col-xs-6 col-md-3">
+            @await Html.PartialAsync("_ProductThumbnail", product)
+         </div>
+    }
+</div>
+
+@foreach (var widgetInstance in Model.WidgetInstances.Where(x => x.WidgetZoneId == WidgetZoneIds.HomeAfterMainContent))
+{
+    if (widgetInstance.WidgetId == 2)
+    {
+        @Html.Raw(widgetInstance.HtmlData)
+    }
+    else
+    {
+        @await Component.InvokeAsync(widgetInstance.ViewComponentName, new { widgetInstance = widgetInstance })
+    }
+
+}
+<div>
+    <h2 class="page-header">Administrator</h2>
+    <p>Manage your store. Admin email: admin@SimplCommerce.com. Admin password: 1qazZAQ!</p>
+    <p>
+        <a class="btn btn-primary" href="Admin" role="button">Go to Dashboard</a>
+    </p>
+</div>
 
 <div>
     <h2 class="page-header">Sample data</h2>

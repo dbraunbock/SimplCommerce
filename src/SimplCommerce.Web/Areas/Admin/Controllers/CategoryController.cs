@@ -7,7 +7,6 @@ using SimplCommerce.Web.Areas.Admin.Helpers;
 using SimplCommerce.Web.Areas.Admin.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore;
 
 namespace SimplCommerce.Web.Areas.Admin.Controllers
 {
@@ -89,20 +88,15 @@ namespace SimplCommerce.Web.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Delete(long id)
         {
-            var category = categoryRepository.Query().Include(x => x.Child).FirstOrDefault(x => x.Id == id);
+            var category = categoryRepository.Query().FirstOrDefault(x => x.Id == id);
             if (category == null)
             {
                 return new NotFoundResult();
             }
 
-            if(category.Child.Any(x => !x.IsDeleted))
-            {
-                return BadRequest(new { Error = "Please make sure this category contains no children" });
-            }
-
             categoryService.Delete(category);
 
-            return Ok();
+            return Json(true);
         }
     }
 }

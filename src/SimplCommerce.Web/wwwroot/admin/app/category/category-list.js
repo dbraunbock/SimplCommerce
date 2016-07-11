@@ -5,7 +5,7 @@
         .controller('CategoryListCtrl', CategoryLitsCtrl);
 
     /* @ngInject */
-    function CategoryLitsCtrl(categoryService, toastr, bootbox) {
+    function CategoryLitsCtrl(categoryService) {
         var vm = this;
         vm.categories = [];
 
@@ -16,18 +16,11 @@
         };
 
         vm.deleteCategory = function deleteCategory(category) {
-            bootbox.confirm('Are you sure you want to delete this ' + category.name, function (result) {
-                if (result) {
-                    categoryService.deleteCategory(category)
-                       .then(function (result) {
-                           vm.getCategories();
-                           toastr.success(category.name + 'Have been deleted')
-                        })
-                       .catch(function (error) {
-                            toastr.error(error.data.error);
-                        });
-                }
-            });
+            if (confirm("Are you sure?")) {
+                categoryService.deleteCategory(category).then(function (result) {
+                    vm.getCategories();
+                });
+            }
         };
 
         vm.getCategories();

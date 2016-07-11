@@ -55,7 +55,3 @@ table > tbody > tr > td.variation-form {
 .order-item-list .product-image img {
     width: 120px;
 }
-
-#toast-container>div {
-    opacity: 1;
-}
