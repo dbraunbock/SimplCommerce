@@ -23,7 +23,10 @@ namespace SimplCommerce.Core.Infrastructure.EntityFramework
         {
             foreach (var command in commands)
             {
-                dbContext.Database.ExecuteSqlCommand(command);
+                if (!string.IsNullOrEmpty(command.ToString()))
+                {
+                    dbContext.Database.ExecuteSqlCommand(command);
+                }
             }
         }
 
