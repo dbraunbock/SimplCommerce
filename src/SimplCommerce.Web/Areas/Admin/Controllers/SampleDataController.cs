@@ -23,10 +23,10 @@ namespace SimplCommerce.Web.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult ResetToSample()
         {
-            var filePath = Path.Combine(GlobalConfiguration.ApplicationPath, "SampleData", "ResetToSampleData_Postgre.sql");
+            var filePath = Path.Combine(GlobalConfiguration.ApplicationPath, "SampleData", "ResetToSampleData.sql");
             var lines = System.IO.File.ReadLines(filePath);
-            //var commands = sqlRepository.ParseCommand(lines);
-            sqlRepository.RunCommands(lines);
+            var commands = sqlRepository.ParseCommand(lines);
+            sqlRepository.RunCommands(commands);
 
             CopyImages();
 

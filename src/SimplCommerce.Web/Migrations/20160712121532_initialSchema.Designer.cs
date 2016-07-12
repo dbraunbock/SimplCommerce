@@ -8,13 +8,14 @@ using SimplCommerce.Core.Infrastructure.EntityFramework;
 namespace SimplCommerce.Web.Migrations
 {
     [DbContext(typeof(SimplDbContext))]
-    [Migration("20160711125048_initialSchema")]
+    [Migration("20160712121532_initialSchema")]
     partial class initialSchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
+                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<long>", b =>
                 {
