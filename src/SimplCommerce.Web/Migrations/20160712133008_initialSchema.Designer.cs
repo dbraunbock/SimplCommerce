@@ -8,7 +8,7 @@ using SimplCommerce.Core.Infrastructure.EntityFramework;
 namespace SimplCommerce.Web.Migrations
 {
     [DbContext(typeof(SimplDbContext))]
-    [Migration("20160712121532_initialSchema")]
+    [Migration("20160712133008_initialSchema")]
     partial class initialSchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
