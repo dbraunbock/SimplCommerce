@@ -120,11 +120,12 @@ namespace SimplCommerce.Web
             var supportedCultures = new[]
             {
                 new CultureInfo("en-US"),
+                new CultureInfo("de-AT"),
                 new CultureInfo("vi-VN")
             };
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
-                DefaultRequestCulture = new RequestCulture(culture: "vi-VN", uiCulture: "vi-VN"),
+                DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US"),
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures
             });

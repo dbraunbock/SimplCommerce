@@ -14,14 +14,14 @@ namespace SimplCommerce.Web.ViewModels.Cart
         public string ProductImage { get; set; }
 
         public decimal ProductPrice { get; set; }
-
-        public string ProductPriceString => string.Concat(ProductPrice.ToString("N0", new CultureInfo("VN-vi")), " VND");
+        
+        public string ProductPriceString => string.Concat(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol.ToString(), " ", ProductPrice.ToString("N", CultureInfo.CurrentCulture));
 
         public int Quantity { get; set; }
 
         public decimal Total => Quantity * ProductPrice;
 
-        public string TotalString => string.Concat(Total.ToString("N0", new CultureInfo("VN-vi")), " VND");
+        public string TotalString => string.Concat(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol.ToString(), " ", Total.ToString("N", CultureInfo.CurrentCulture));
 
         public IEnumerable<ProductVariationOption> VariationOptions { get; set; } = new List<ProductVariationOption>();
 

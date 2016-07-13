@@ -15,13 +15,13 @@ namespace SimplCommerce.Web.Areas.Admin.ViewModels.Orders
 
         public decimal ProductPrice { get; set; }
 
-        public string ProductPriceString => string.Concat(ProductPrice.ToString("N0", new CultureInfo("VN-vi")), " VND");
+        public string ProductPriceString => string.Concat(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol.ToString(), " ", ProductPrice.ToString("N", CultureInfo.CurrentCulture));
 
         public int Quantity { get; set; }
 
         public decimal Total => Quantity*ProductPrice;
 
-        public string TotalString => string.Concat(Total.ToString("N0", new CultureInfo("VN-vi")), " VND");
+        public string TotalString => string.Concat(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol.ToString(), " ", Total.ToString("N", CultureInfo.CurrentCulture));
 
         public IEnumerable<ProductVariationOptionVm> VariationOptions { get; set; } =
             new List<ProductVariationOptionVm>();

@@ -57,13 +57,13 @@
                         <h3>@Model.FirstVariation.Price.ToString("C")</h3>
                         foreach (var variant in Model.Variations)
                         {
-                            <input type="hidden" name="@(variant.NormalizedName)Price" value="@variant.Price.ToString("N0", new CultureInfo("vi-VN")) VND" />
+                            <input type="hidden" name="@(variant.NormalizedName)Price" value="@string.Concat(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol.ToString(), " ", variant.Price.ToString("N", CultureInfo.CurrentCulture))" />
                             <input type="hidden" name="@(variant.NormalizedName)Id" value="@variant.Id" />
                         }
                     }
                     else
                     {
-                        <h3>@Model.Price.ToString("N0", new CultureInfo("vi-VN")) VND</h3>
+                        <h3>@string.Concat(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol.ToString(), " ", Model.Price.ToString("N", CultureInfo.CurrentCulture))</h3>
                     }
                 </div>
 
